@@ -57,6 +57,22 @@ const contactsSlice = createSlice({
   },
 });
 
-
+// .addCase(addContacts.pending, state => {
+//   return {
+//     ...state,
+//     isLoading: true,
+//   };
+// })
+// .addCase(addContacts.rejected, (state, { payload }) => {
+//   state.isLoading = false;
+//   state.error = payload;
+// })
+// .addCase(getContacts.pending, state => {
+//   state.isLoading = true;
+// })
+// .addCase(getContacts.rejected, (state, { payload }) => {
+//   state.isLoading = false;
+//   state.error = payload;
+// })
 export const { filterContact } = contactsSlice.actions;
 export default contactsSlice.reducer;

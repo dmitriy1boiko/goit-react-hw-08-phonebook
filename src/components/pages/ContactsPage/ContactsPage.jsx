@@ -1,15 +1,13 @@
-
-import Bookcontact from "components/bookcontact/Bookcontact";
-import Loader from "components/Loader/Loader";
-import Section from "components/section/Section";
-import { Contacts } from "contacts/Contacts";
-import { FilterContacts } from "contacts/filter-contacts/FilterContacts";
-import { useState } from "react";
-import { Container } from "./Phonebook.styled";
-
+import Section from '../../section/Section';
+import Bookcontact from '../../bookcontact/Bookcontact';
+import { Container } from './ContactsPage.styles';
+import { Contacts } from '../../../contacts/Contacts';
+import { useState } from 'react';
+import { FilterContacts } from '../../../contacts/filter-contacts/FilterContacts';
+import Loader from '../../Loader/Loader';
 
 
-export const Phonebook = () => {
+export default function ContactsPage() {
   const [filter, setFilter] = useState('');
 
   const handleChengeInput = filter => {

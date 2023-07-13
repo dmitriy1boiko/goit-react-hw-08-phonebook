@@ -1,13 +1,16 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-
-const initialState ={
-  isAuth: true,
+const initialState = {
+  user: { name: null, email: null },
+  token: null,
+  isLoggedIn: false,
+  isRefreshing: true,
 };
 
-const authSlice = createSlice({
+export const authSlice = createSlice({
   name: 'auth',
   initialState,
+  
 });
 
-export const authReducer = authSlice.reducer;
+ export default authSlice.reducer;

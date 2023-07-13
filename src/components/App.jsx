@@ -1,35 +1,19 @@
-// import Section from './section/Section';
-// import Bookcontact from './bookcontact/Bookcontact';
-// import { Container } from './App.styled';
-// import { Contacts } from 'contacts/Contacts';
-// import { useState } from 'react';
-// import { FilterContacts } from 'contacts/filter-contacts/FilterContacts';
-// import Loader from './Loader/Loader';
-import { Phonebook } from 'pages/Phonebook/Phonebook';
-import { useSelector } from 'react-redux';
-import { Routes, Route, Navigate } from 'react-router-dom';
+
+import { Route, Routes } from 'react-router-dom';
+import ContactsPage from './pages/ContactsPage/ContactsPage';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { getContacts } from 'redux/operations';
+// import {selectorContacts, selectorLoader,selectorError} from '../redux/selectors'
 
 export const App = () => {
-  // const [filter, setFilter] = useState('');
-
-  // const handleChengeInput = filter => {
-  //   setFilter(filter);
-  // };
-  const isAuth = useSelector(state => state.auth.isAuth);
+  
 
   return (
     <>
-      {isAuth ? (
-        <Routes>
-          <Route path="/phonebook" component={<Phonebook/>}></Route>
-          <Route path="*" component={<Navigate to={'/phonebook'} />}></Route>
-        </Routes>
-      ) : (
-        <Routes>
-          <Route path="register"></Route>
-          <Route path="/login"></Route>
-        </Routes>
-      )}
+    
+      <Routes>
+        <Route path="/contacts" element ={<ContactsPage/>}/>
+      </Routes>
     </>
   );
 };
