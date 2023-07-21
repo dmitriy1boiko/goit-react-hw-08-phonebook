@@ -9,7 +9,9 @@ import RestrictedRoute from 'RestrictedRoute';
 import authSelectors, { selectAuthToken } from 'redux/auth/authSelectors';
 import { getContacts } from 'redux/contacts/operations';
 import Loader from './Loader/Loader';
-
+// import { useDispatch, useSelector } from 'react-redux';
+// import { getContacts } from 'redux/operations';
+// import {selectorContacts, selectorLoader,selectorError} from '../redux/selectors'
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
@@ -61,4 +63,34 @@ export const App = () => {
     </>
   );
 };
+// const [contacts, setContakts] = useState(
+//   () => JSON.parse(localStorage.getItem('contacts')) ?? []
+// );
+// const contacts = useSelector(selectorContacts);
+// const isLoading = useSelector(selectorLoader);
+// const error = useSelector(selectorError);
+// const dispatch = useDispatch();
+// useEffect(() => {
 
+//    dispatch(getContacts());
+// }, [dispatch]);
+
+// useEffect(() => {
+//   localStorage.setItem('contacts', JSON.stringify(contacts));
+// }, [contacts]);
+
+// const findContact = contact => {
+//   return contacts.find(
+//     item => item.name.toLowerCase() === contact.name.toLowerCase()
+//   );
+// };
+
+//   setContakts(prev => [...prev, contact]);
+// };
+// const applyFilters = () => {
+//   return contacts.filter(
+//     contact =>
+//       contact.name.toLowerCase().includes(filter.toLowerCase()) ||
+//       contact.number.includes(filter)
+//   );
+// };

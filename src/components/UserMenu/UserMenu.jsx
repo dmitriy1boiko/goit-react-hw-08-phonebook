@@ -8,7 +8,7 @@ export const UserMenu = () => {
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.selectUserName);
   const isAuth = useSelector(authSelectors.selectUserisAuth);
-  console.log(isAuth);
+  
   return (
     <Container>
       {isAuth && (

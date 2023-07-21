@@ -1,20 +1,19 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import { deleteError, deleteRequest, deleteSuccess} from './contactsSlice';
 
 
 
 export const addContacts = createAsyncThunk(
   'contacts/addContact',
   async (newContact, thunkApi) => {
-    // dispatch({type: "contacts/addContact/pending"}) -> reducer
+   
     try {
       
       const response = await axios.post('/contacts', {
         name: newContact.name,
         number: newContact.number,
       });
-      console.log(response);
+      
       return response.data; // dispatch({type: "contacts/addContact/fulfilled", payload: response.data })
     } catch (error) {
       return thunkApi.rejectWithValue(error.message); // dispatch({type: "contacts/addContact/rejected", payload: error.message })
