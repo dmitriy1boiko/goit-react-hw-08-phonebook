@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { FilterContacts } from '../../../contacts/filter-contacts/FilterContacts';
 import Loader from '../../Loader/Loader';
 
-
 export default function ContactsPage() {
   const [filter, setFilter] = useState('');
 
@@ -22,12 +21,9 @@ export default function ContactsPage() {
         </Section>
         <Section title="Contacts">
           <FilterContacts filter={filter} onChangeInput={handleChengeInput} />
-          <Contacts
-
-          // onDeleteContact={handleDeleteContact}
-          />
+          <Contacts />
         </Section>
       </Loader>
     </Container>
   );
-};
+}

@@ -1,16 +1,37 @@
 import styled from 'styled-components';
 
+// const FormWrapper = styled.div`
+//   width: 500px;
+//   border-radius: 10px 10px 10px 10px;
+//   background: #ffffff1f;
+//   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+//   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+//   text-align: center;
+//   padding: 20px;
+//   margin: 0 auto;
+//   border: solid 1px #b3aca7;
+// `;
+
 const Form = styled.form`
   width: 500px;
+  /* border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center; */
+
   margin: 0 auto;
+  padding: 0;
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   gap: 15px;
 `;
 
-const SubButton = styled.button`
-  width: 502px;
+const Label = styled.label``;
+
+const Btn = styled.button`
+  width: 492px;
   padding: 10px;
   font-family: 'Lato', sans-serif;
   font-size: 0.875em;
@@ -36,9 +57,10 @@ const SubButton = styled.button`
 const Input = styled.input`
   font-family: 'Lato', sans-serif;
   font-size: 0.875em;
+  margin: 0;
+  padding: 10px;
   width: 470px;
-  height: 50px;
-  padding: 0px 15px 0px 15px;
+  /* padding: 0px 15px 0px 15px; */
 
   background: transparent;
   outline: none;
@@ -57,4 +79,15 @@ const Input = styled.input`
   }
 `;
 
-export { Form, SubButton, Input };
+const Title = styled.h2`
+  font-family: 'Lato', sans-serif;
+  margin: 0 auto;
+  margin: 25px 0;
+  font-size: 2.3em;
+  text-align: center;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--red);
+`;
+export { Form, Label, Btn, Input, Title };

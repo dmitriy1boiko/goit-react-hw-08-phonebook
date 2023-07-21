@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 // import { deleteError, deleteRequest, deleteSuccess} from './contactsSlice';
 
-axios.defaults.baseURL = 'https://64a432ffc3b509573b573f79.mockapi.io/';
+
 
 export const addContacts = createAsyncThunk(
   'contacts/addContact',
@@ -12,7 +12,7 @@ export const addContacts = createAsyncThunk(
       
       const response = await axios.post('/contacts', {
         name: newContact.name,
-        phone: newContact.phone,
+        number: newContact.number,
       });
       console.log(response);
       return response.data; // dispatch({type: "contacts/addContact/fulfilled", payload: response.data })
@@ -46,35 +46,3 @@ export const deleteContacts = createAsyncThunk(
   }
 );
 
-// export const addContactsApi = newContact => {
-//   return axios.post('/contacts', newContact).then(({ data }) => {
-//     return data;
-//   });
-// };
-
-// export const getContactsApi = () => {
-//   return axios.get('/contacts').then(({ data }) => {
-//     return data;
-//   });
-// };
-
-// export const deleteContactsApi = (id) => {
-//   return axios.delete(`/contacts/${id}`).then(({ data }) => id);
-// };
-
-// export const addContacts = newContact => (dispatch, getState) => {
-//   dispatch(addRequest());
-//   addContactsApi(newContact)
-//     .then(contacts => dispatch(addSuccess(contacts)))
-//     .catch(err => dispatch(addError(err.message)));
-// };
-
-// export const getContacts=() =>(dispatch)=>{
-//   dispatch(getRequest());
-//   getContactsApi().then((data)=>dispatch(getSuccess(data))).catch(err =>dispatch(getError(err.message)));
-// };
-
-// export const deleteContacts = (id)=>(dispatch)=>{
-//   dispatch(deleteRequest());
-//   deleteContactsApi(id).then((id) =>dispatch(deleteSuccess(id))).catch((err)=>dispatch(deleteError(err.message)));
-// };

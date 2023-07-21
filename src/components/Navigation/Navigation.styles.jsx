@@ -29,11 +29,9 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-const AuthNavCont = styled.div`
+const NavContainer = styled.nav`
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
 `;
 
-export { AuthNavCont, StyledLink };
+export { NavContainer, StyledLink };

@@ -16,7 +16,7 @@ export const Contacts = () => {
     return contacts.filter(
       contact =>
         contact.name.toLowerCase().includes(filterContacts.toLowerCase()) ||
-        contact.phone.includes(filterContacts)
+        contact.number.includes(filterContacts)
     );
   };
 
@@ -32,11 +32,10 @@ export const Contacts = () => {
         <li key={contact.id}>
           <Wrap>
             <Contact>
-              {contact.name}: {contact.phone}
+              {contact.name}: {contact.number}
             </Contact>
             <Button
               type="button"
-              // onClick={() => dispatch(deleteContact(contact.id))
               onClick={() => dispatch(deleteContacts(contact.id))}
             >
               Delete

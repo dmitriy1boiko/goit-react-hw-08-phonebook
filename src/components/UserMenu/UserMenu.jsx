@@ -1,22 +1,27 @@
 import { useDispatch, useSelector } from 'react-redux';
-// import { logOut } from 'redux/auth/authOperations';
-// import authSelectors from 'redux/auth/authSelectors';
+import { logoutOperation } from 'redux/auth/authOperations';
+
+import authSelectors from 'redux/auth/authSelectors';
 import { Container, LogOutBtn, UserName } from './UserMenu.styles';
 
 export const UserMenu = () => {
-  // const dispatch = useDispatch();
-  // const name = useSelector(authSelectors.selectUserName);
-
+  const dispatch = useDispatch();
+  const name = useSelector(authSelectors.selectUserName);
+  const isAuth = useSelector(authSelectors.selectUserisAuth);
+  console.log(isAuth);
   return (
     <Container>
-      <UserName>Welcome, 
-      {/* {name}! */}
-      </UserName>
-      <LogOutBtn type="button" 
-      // onClick={() => dispatch(logOut())}
-      >
-        Log out
-      </LogOutBtn>
+      {isAuth && (
+        <>
+          <UserName>
+            Welcome,
+            {name}!
+          </UserName>
+          <LogOutBtn type="button" onClick={() => dispatch(logoutOperation())}>
+            Log out
+          </LogOutBtn>
+        </>
+      )}
     </Container>
   );
 };

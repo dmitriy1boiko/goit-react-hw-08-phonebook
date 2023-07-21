@@ -1,16 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { logoutOperation } from 'redux/auth/authOperations';
 import { addContacts, deleteContacts, getContacts } from './operations';
+
+const initialState = {
+  contacts: {
+    items: [],
+    isLoading: false,
+    error: null,
+  },
+  filter: '',
+};
 
 const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: {
-    contacts: {
-      items: [],
-      isLoading: false,
-      error: null,
-    },
-    filter: '',
-  },
+  initialState,
   reducers: {
     filterContact: {
       reducer(state, { payload }) {
@@ -39,8 +42,13 @@ const contactsSlice = createSlice({
           el => el.id !== payload
         );
       })
+      .addCase(logoutOperation.fulfilled, (state, { payload }) => {
+        return {
+          initialState,
+        };
+      })
       .addMatcher(
-        action => action.type.endsWith('pending'),
+        action => action.type.endsWith('/pending'),
         state => {
           state.contacts.isLoading = true;
         }
@@ -48,7 +56,7 @@ const contactsSlice = createSlice({
       .addMatcher(
         action =>
           action.type.startsWith('contacts') &&
-          action.type.endsWith('rejected'),
+          action.type.endsWith('/rejected'),
         (state, { payload }) => {
           state.contacts.isLoading = false;
           state.contacts.error = payload;
@@ -57,22 +65,6 @@ const contactsSlice = createSlice({
   },
 });
 
-// .addCase(addContacts.pending, state => {
-//   return {
-//     ...state,
-//     isLoading: true,
-//   };
-// })
-// .addCase(addContacts.rejected, (state, { payload }) => {
-//   state.isLoading = false;
-//   state.error = payload;
-// })
-// .addCase(getContacts.pending, state => {
-//   state.isLoading = true;
-// })
-// .addCase(getContacts.rejected, (state, { payload }) => {
-//   state.isLoading = false;
-//   state.error = payload;
-// })
+
 export const { filterContact } = contactsSlice.actions;
 export default contactsSlice.reducer;
