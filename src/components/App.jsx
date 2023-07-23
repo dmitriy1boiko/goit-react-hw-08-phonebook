@@ -7,7 +7,7 @@ import { refreshUser } from 'redux/auth/authOperations';
 import { PrivateRoute } from './PrivateRoute';
 import RestrictedRoute from 'RestrictedRoute';
 import authSelectors, { selectAuthToken } from 'redux/auth/authSelectors';
-import { getContacts } from 'redux/contacts/operations';
+// import { getContacts } from 'redux/contacts/operations';
 import Loader from './Loader/Loader';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getContacts } from 'redux/operations';
@@ -24,7 +24,7 @@ export const App = () => {
 
   useEffect(() => {
     if (isToken) {
-      dispatch(refreshUser()).then(() => dispatch(getContacts()));
+      dispatch(refreshUser());
     }
   }, [isToken, dispatch]);
 

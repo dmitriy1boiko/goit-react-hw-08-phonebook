@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Wrap, Contact } from './Contacts.styled';
 
-import { useEffect } from 'react';
-import { getContacts } from 'redux/contacts/operations';
+// import { useEffect } from 'react';
+// import { getContacts } from 'redux/contacts/operations';
 import { deleteContacts } from 'redux/contacts/operations';
 import { selectorContacts, selectorFilter } from 'redux/contacts/selectors';
 
@@ -22,9 +22,9 @@ export const Contacts = () => {
 
   const filteredContacts = handleFilter();
 
-  useEffect(() => {
-    dispatch(getContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getContacts());
+  // }, [dispatch]);
 
   return (
     <ul>
